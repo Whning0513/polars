@@ -218,6 +218,10 @@ def read_csv(
         this function determines if it is possible to use pyarrow's
         native parser. Note that pyarrow and polars may have a
         different strategy regarding type inference.
+
+        When ``use_pyarrow=False``, empty lines are retained as rows with null values
+        in all columns. This differs from readers that skip empty lines, such as
+        ``pandas.read_csv``.
     storage_options
         Extra options that make sense for `fsspec.open()` or a
         particular storage connection.
